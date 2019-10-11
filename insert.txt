@@ -1,0 +1,1 @@
+INSERT INTO `funcionarios` (`nome`,`celular`,`email`,`cpf`,`rua`,`bairro`,`numero`,`cidade`,`uf`,`cep`,`funcao`,`senha`) VALUES ('Breno Rodrigues','17988126063','breno@gmail.com','46736887836','ajajaja','aaaaaaa','492','bebedouro','sp','14708106','1','202cb962ac59075b964b07152d234b70');
