@@ -24,7 +24,7 @@ include('../includes/verificaLogin.php');
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-warning" id="nav-bar">
+<nav class="navbar navbar-expand-lg navbar-light bg-warning" id="nav-bar">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -32,7 +32,7 @@ include('../includes/verificaLogin.php');
   <form action="../includes/logout.php"  class="form-inline my-2 my-lg-0">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
+        <a class="nav-link" href="#">Dashboard <span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">+Reserva</a>
