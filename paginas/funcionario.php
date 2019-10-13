@@ -5,7 +5,7 @@ include('../includes/verificaLogin.php');
 <html lang="en">
 
 <head>
-<title>Dashboard</title>  
+<title>+Funcionario</title>  
 <?php
 include('../includes/head.php');
 ?>
@@ -18,5 +18,3 @@ include('../includes/menu.php');
 </body>
 
 </html>
-
-<!-- <h2><a href="../includes/logout.php">Sair</a></h2> -->
