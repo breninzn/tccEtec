@@ -15,6 +15,38 @@ include('../includes/head.php');
 <?php
 include('../includes/menu.php');
 ?>
+
+<div class="container">
+<form action="../includes/funcionario/adicionarFuncionario.php" method="post">
+  
+    <div class="titulo">
+        <p>+Funcionario</p>
+    </div>
+    <div class="inputs">
+        <input type="text" name="nome" class="" id="nome" placeholder="Digite o nome aqui!">
+        <input type="text" name="cpf" class="" id="cpf" placeholder="Digite a cpf aqui!">
+        <input type="text" name="telefone" class="" id="telefone" placeholder="Digite o telefone aqui!">
+        <input type="text" name="email" class="" id="email" placeholder="Digite o email aqui!">
+        <input type="password" name="senha" class="" id="senha" placeholder="Digite sua senha aqui!">   
+        <select class="select" id="funcao" name="funcao">
+            <option selected>Escolha uma função</option>
+            <?php 
+            include("../includes/conexao.php");
+            $result = mysqli_query($conexao, "SELECT * FROM funcao ORDER BY funcao ASC");
+            while ($array = mysqli_fetch_array($result)) {
+                echo "<option value='".$array["id"]."'>".$array["funcao"]."</option>";
+            }
+            
+            ?>
+    </select>
+    </div>
+    <div class="btn-salvar">
+        <button type="submit" class="btn btn-success my-2 my-sm-0">Salvar</button>
+    </div>
+
+</form>  
+</div>
+</div>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-warning" id="nav-bar">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
@@ -31,20 +30,22 @@
 </nav>
 
   <div class="d-flex" id="wrapper">
-    <div class="bg-warning border-right" id="sidebar-wrapper">
-      <div class="list-group list-group-flush">
+    <div class="bg-warning border-right menu-lateral-background" id="sidebar-wrapper">
+      <div class="list-group list-group-flush menu-lateral">
       <form action="../includes/logout.php" >
         <p href="#" class="list-group-item list-group-item-action bg-warning  "><img src="../imgs/logo.png" width="100%" heigth="100%"></p>
-        <a href="http://localhost/tccEtec/paginas/home.php" class="list-group-item list-group-item-action bg-warning h5">Dashboard</a>
-        <a href="http://localhost/tccEtec/paginas/reserva.php" class="list-group-item list-group-item-action bg-warning h5">+Reserva</a>
-        <a href="http://localhost/tccEtec/paginas/funcionario.php" class="list-group-item list-group-item-action bg-warning h5">+Funcionario</a>
-        <a href="http://localhost/tccEtec/paginas/servico.php" class="list-group-item list-group-item-action bg-warning h5">+Serviço</a>
-        <button type="submit" class="btn btn-danger lateral1"><h4>Sair</h4></button>
+        <a href="http://localhost/tccEtec/paginas/home.php" class="list-group-item list-group-item-action bg-warning h4">Dashboard</a>
+        <a href="http://localhost/tccEtec/paginas/reserva.php" class="list-group-item list-group-item-action bg-warning h4">+Reserva</a>
+        <a href="http://localhost/tccEtec/paginas/funcionario.php" class="list-group-item list-group-item-action bg-warning h4">+Funcionario</a>
+        <a href="http://localhost/tccEtec/paginas/servico.php" class="list-group-item list-group-item-action bg-warning h4">+Serviço</a>
+        <div class="btn-sair"><button type="submit" class="lateral1"> <img src="../imgs/btn-sair.png" alt=""> </button> </div> 
         </form>
       </div>
     </div>
-    
 
+  
   
   <script src="../jquery/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  
