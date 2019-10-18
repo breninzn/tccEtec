@@ -5,7 +5,7 @@
     
   if (isset($_POST["servico"])){
 	include("../conexao.php");
-	$gravar = mysqli_query($conexao,"insert into funcionarios VALUES (null, '$nome','$telefone','$email','$cpf','$funcao','$senha')");
+	$gravar = mysqli_query($conexao,"insert into servico VALUES (null, '$servico','$duracao','$preco')");
 	if($gravar){
 		echo '<script>alert("Gravado com Sucesso")</script>';
 		echo '<meta http-equiv="refresh"; content="2;url=../../paginas/servico.php">';
