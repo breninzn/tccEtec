@@ -1,9 +1,10 @@
 <?php
+include("../limpa.php");
 	$nome = $_POST["nome"];
-	$cpf = $_POST["cpf"];
+	$cpf = limpa($_POST["cpf"]);
 	$senha = $_POST["senha"];
     $email = $_POST["email"];
-    $telefone = $_POST["telefone"];
+    $telefone = limpa($_POST["telefone"]);
     $funcao = $_POST["funcao"];
 
     $senha=md5($senha);

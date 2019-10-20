@@ -22,8 +22,8 @@ include('../includes/menu.php');
         </div>
         <div class="inputs">
             <input type="text" name="servico" class="" id="servico" placeholder="Digite o serviço aqui!">
-            <input type="text" name="duracao" class="" id="duracao" placeholder="Digite a duração aqui!">
-            <input type="text" name="preco" class="" id="preco" placeholder="Digite o preço aqui!">   
+            <input type="text" name="duracao" class="" data-mask="00:00" id="duracao" placeholder="Digite a duração aqui!">
+            <input type="text" name="preco"   class="" id="preco" placeholder="Digite o preço aqui!">   
         </div>
         <div class="btn-salvar">
             <button type="submit"class="btn btn-success my-2 my-sm-0">Salvar</button>
@@ -36,5 +36,7 @@ include('../includes/menu.php');
 
 
 </body>
-
+<?php
+include('../includes/jquery.php');
+?>
 </html>

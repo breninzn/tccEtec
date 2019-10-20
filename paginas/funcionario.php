@@ -8,6 +8,7 @@ include('../includes/verificaLogin.php');
 <title>+Funcionario</title>  
 <?php
 include('../includes/head.php');
+
 ?>
 </head>
 
@@ -22,10 +23,11 @@ include('../includes/menu.php');
     <div class="titulo">
         <p>+Funcionario</p>
     </div>
+    
     <div class="inputs">
         <input type="text" name="nome" class="" id="nome" placeholder="Digite o nome aqui!">
-        <input type="text" name="cpf" class="" id="cpf" placeholder="Digite a cpf aqui!">
-        <input type="text" name="telefone" class="" id="telefone" placeholder="Digite o telefone aqui!">
+        <input type="text" name="cpf" data-mask="000.000.000-00" id="cpf" placeholder="Digite a cpf aqui!">
+        <input type="text" name="telefone" data-mask="(00) 0000-00000" class="" id="telefone" placeholder="Digite o telefone aqui!">
         <input type="text" name="email" class="" id="email" placeholder="Digite o email aqui!">
         <input type="password" name="senha" class="" id="senha" placeholder="Digite sua senha aqui!">   
         <select class="select" id="funcao" name="funcao">
@@ -49,4 +51,9 @@ include('../includes/menu.php');
 </div>
 </body>
 
+
+
+<?php
+include('../includes/jquery.php');
+?>
 </html>

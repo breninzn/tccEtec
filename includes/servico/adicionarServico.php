@@ -1,6 +1,8 @@
 <?php
+include("../limpa.php");
+
 	$servico = $_POST["servico"];
-	$duracao = $_POST["duracao"];
+	$duracao = limpa($_POST["duracao"]);
     $preco = $_POST["preco"];
     
   if (isset($_POST["servico"])){
