@@ -2,6 +2,7 @@
 include('../includes/verificaLogin.php');
 include('../includes/funcionario/adicionarFuncionario.php');
 include('../includes/funcionario/excluirFuncionario.php');
+include('../includes/funcionario/atualizarFuncionario.php');
 include('../includes/funcao/adicionarFuncao.php');
 include('../includes/funcao/excluirFuncao.php');
 ?>
@@ -61,7 +62,7 @@ include('../includes/menu.php');
             }
             
             ?>
-    </select>
+        </select>
     </div>
     <div class="btn-salvar">
         <button type="submit" name="btnSalvar" class="btn btn-success my-2 my-sm-0">Salvar</button>
@@ -97,7 +98,62 @@ include('../includes/menu.php');
   </div>
 
 </div>
-
+<!-- Modal -->
+<div class="modal fade" id="modal<?php echo $array["id_funcionario"]?>" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Editar Funcionario</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post">
+              <div class="inputs">
+                <input style="display:none;" name="id" value="<?php echo $array["id_funcionario"]?>">
+                <div>
+                  <div style="margin-top:5%"><b>Nome:</b></div>
+                  <input required type="text" name="nome<?php echo $array["id_funcionario"]?>" value="<?php echo $array["nomeFuncionario"]?>" placeholder="Digite o nome aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Celular:</b></div>  
+                  <input required type="text" data-mask="(00) 00000-0000" name="celular<?php echo $array["id_funcionario"]?>" value="<?php echo $array["celular"]?>" placeholder="Digite o telefone aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>CPF:</b></div>  
+                  <input required type="text" data-mask="000.000.000-00" name="cpf<?php echo $array["id_funcionario"]?>" value="<?php echo $array["cpf"]?>" placeholder="Digite o CPF aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Email:</b></div>  
+                  <input type="text" name="email<?php echo $array["id_funcionario"]?>" value="<?php echo $array["email"]?>" placeholder="Digite o email aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Função:</b></div>  
+                  <select required class="select" id="funcao" name="funcao<?php echo $array["id_funcionario"]?>">
+                    <option value="" id="selected">Escolha uma função</option>
+                    <?php  
+                    $resultado = mysqli_query($conexao, "SELECT * FROM funcao ORDER BY funcao ASC");
+                    while ($dados = mysqli_fetch_array($resultado)) {
+                        echo "<option value='".$dados["id_funcao"]."'>".$dados["funcao"]."</option>";
+                    }
+                    ?>
+                  </select>
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Senha:</b></div>  
+                  <input required type="text" name="senha<?php echo $array["id_funcionario"]?>" value="<?php echo base64_decode($array["senha"])?>" placeholder="Digite a senha aqui!">
+                </div>
+              </div>
+          </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
+                <button type="submit" name="btnSalvarEditar" class="btn btn-success botoesModal">Salvar</button></a>';
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
 <?php
   endwhile;
 ?>

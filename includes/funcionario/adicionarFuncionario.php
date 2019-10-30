@@ -7,7 +7,7 @@ include("../includes/conexao.php");
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];
     $funcao = $_POST["funcao"];
-    $senha= md5($senha);
+    $senha= base64_encode($senha);
 	$gravar = mysqli_query($conexao,"insert into funcionarios VALUES (null, '$nome','$telefone','$email','$cpf','$funcao','$senha')");
 	if($gravar){
 		echo '<script>alert("Gravado com Sucesso")</script>';

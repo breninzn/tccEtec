@@ -10,8 +10,8 @@ if(empty($_POST['usuario']) || empty($_POST['senha'])) {
  
 $usuario = mysqli_real_escape_string($conexao,$_POST['usuario']);
 $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
- 
-$query = "select nomeFuncionario, cpf from funcionarios where cpf = '{$usuario}' and senha = md5('{$senha}')";
+$senha_criptografada = base64_encode($senha);
+$query = "select nomeFuncionario, cpf from funcionarios where cpf = '{$usuario}' and senha = '{$senha_criptografada}'";
  
 $result = mysqli_query($conexao, $query);
  

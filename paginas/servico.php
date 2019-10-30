@@ -74,22 +74,22 @@ include('../includes/menu.php');
             </button>
           </div>
           <div class="modal-body">
-          <form action="" method="post">
-            <div class="inputs">
-            <input style="display:none;" name="id" id="id<?php echo $array["id_servico"]?>" value="<?php echo $array["id_servico"]?>">
-              <input required type="text" name="servico<?php echo $array["id_servico"]?>" value="<?php echo $array["servico"]?>" id="servico" placeholder="Digite o serviço aqui!">
-              <input required  type="text" name="duracao<?php echo $array["id_servico"]?>"value="<?php echo $array["duracao"]?>" data-mask="00:00" id="duracao" placeholder="Digite a duração aqui!">
-              <input required  type="text" name="preco<?php echo $array["id_servico"]?>"  value="<?php echo $array["preco"]?>" id="preco" placeholder="Digite o preço aqui!"> 
-            </div>
+            <form action="" method="post">
+              <div class="inputs">
+              <input style="display:none;" name="id" id="id<?php echo $array["id_servico"]?>" value="<?php echo $array["id_servico"]?>">
+                <input required type="text" name="servico<?php echo $array["id_servico"]?>" value="<?php echo $array["servico"]?>" id="servico" placeholder="Digite o serviço aqui!">
+                <input required  type="text" name="duracao<?php echo $array["id_servico"]?>"value="<?php echo $array["duracao"]?>" data-mask="00:00" id="duracao" placeholder="Digite a duração aqui!">
+                <input required  type="text" name="preco<?php echo $array["id_servico"]?>"  value="<?php echo $array["preco"]?>" id="preco" placeholder="Digite o preço aqui!"> 
+              </div>
           </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
-        <button type="submit" name="btnSalvarEditar" class="btn btn-success botoesModal">Salvar</button></a>';
-      </div>
-      </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
+                <button type="submit" name="btnSalvarEditar" class="btn btn-success botoesModal">Salvar</button></a>';
+              </div>
+            </form>
+        </div>
     </div>
   </div>
-</div>
 
     <?php 
     
