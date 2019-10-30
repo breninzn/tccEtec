@@ -7,21 +7,17 @@
   <form action="../includes/logout.php"  class="form-inline my-2 my-lg-0">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Dashboard <span class="sr-only">(Página atual)</span></a>
+        <a class="nav-link" href="http://localhost/tccEtec/paginas/home.php">Dashboard</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">+Reserva</a>
+        <a class="nav-link" href="http://localhost/tccEtec/paginas/reserva.php">+Reserva</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">+Funcionario</a>
+        <a class="nav-link" href="http://localhost/tccEtec/paginas/funcionario.php">+Funcionario</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">+Serviço</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">+Função</a>
-      </li>
-    
+        <a class="nav-link" href="http://localhost/tccEtec/paginas/servico.php">+Serviço</a>
+      </li>    
       <button type="submit" width="50%" class="btn btn-danger my-2 my-sm-0 ">Sair</button>
     </ul>
   </form> 

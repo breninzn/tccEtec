@@ -9,7 +9,20 @@ background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
 }
-
+.erroLogin p{
+    padding: 1.5%;
+}
+.erroLogin{
+    height: 40px;
+    margin-bottom:3% ;
+    background-color: red;
+    text-align: center;
+    font-size: 120%;
+    font-family: 'Times', sans-serif;
+}
+#cardLogin{
+    height: auto!important;
+}
 .container{
 background-repeat: no-repeat;
 background-image: url('../imgs/fundoLogin.jpg');

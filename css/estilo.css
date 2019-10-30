@@ -4,10 +4,17 @@
     text-align: center;
     margin-left: 20%;
 }
+.select selected{
+   color: black ;
+}
+.funcaoApagar{
+    margin-left: 60%;
+}
 .form{
     text-align: center;
     width: 100%;
     height: 100%;
+
 }
 .titulo{
     width: 100%;
@@ -30,7 +37,9 @@
     text-align: center;
     font-size: 120%;
 }
-
+.botoesModal{
+    margin-right: 30%;
+}
 .btn-salvar{
     margin-top: 5%;
     width: 100%;
@@ -51,16 +60,28 @@
     margin-top:5%;
     border:3px solid purple;
     font-size: 120%;
-    color: gray;
+    color: black;
     padding-left: 17%;
 }
 
 
-@media screen and (max-width: 780px) {
+.cardLista{
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 14%;
+    text-align: left;
+    
+}
+
+.cardLista p{
+    width: 50% !important;
+}
+
+@media screen and (max-width: 700px) {
     .container{
         width: 100%;
         height: 100%;
         text-align: center;
-        margin-left: 45%;
+        margin-left: 63%;
     }
 }

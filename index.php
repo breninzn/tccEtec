@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,24 +24,30 @@
 <body>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
-		<div class="card">
+		<div class="card" id="cardLogin">
 			<div class="card-header">
 				<center><h3>Login</h3></center>
 			</div>
 			<div class="card-body">
+			<?php
+				if (isset($_SESSION['nao_autenticado'])):
+				echo '<div class="erroLogin"><p>Login ou senha invalidos !</p></div>';
+				endif;
+				unset($_SESSION['nao_autenticado'])
+			?>
 				<form action="includes/login.php" method="POST">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="usuario" class="form-control" placeholder="username">
+						<input required type="text" name="usuario" data-mask="000.000.000-00" id="usuario" class="form-control" placeholder="Digite a cpf aqui!">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="senha" class="form-control" placeholder="password">
+						<input required type="password" name="senha" class="form-control" placeholder="password">
 					</div>
 					
 					<div class="form-group">
@@ -53,3 +62,6 @@
 </div>
 </body>
 </html>
+<?php
+include('includes/jquery.php');
+?>

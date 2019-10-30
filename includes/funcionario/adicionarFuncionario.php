@@ -1,22 +1,20 @@
 <?php
-include("../limpa.php");
+include("../includes/conexao.php");
+  if (isset($_POST["btnSalvar"])){
 	$nome = $_POST["nome"];
-	$cpf = limpa($_POST["cpf"]);
+	$cpf = 	$_POST["cpf"];
 	$senha = $_POST["senha"];
     $email = $_POST["email"];
-    $telefone = limpa($_POST["telefone"]);
+    $telefone = $_POST["telefone"];
     $funcao = $_POST["funcao"];
-
-    $senha=md5($senha);
-  if (isset($_POST["nome"])){
-	include("../conexao.php");
+    $senha= md5($senha);
 	$gravar = mysqli_query($conexao,"insert into funcionarios VALUES (null, '$nome','$telefone','$email','$cpf','$funcao','$senha')");
 	if($gravar){
 		echo '<script>alert("Gravado com Sucesso")</script>';
-		echo '<meta http-equiv="refresh"; content="2;url=../../paginas/funcionario.php">';
+		echo '<meta http-equiv="refresh"; content="0;url=funcionario.php">';
 	}else{
         echo '<script>alert("não gravou")</script>';
-		echo '<meta http-equiv="refresh"; content="2;url=../../paginas/funcionario.php">';
+		echo '<meta http-equiv="refresh"; content="0;url=funcionario.php">';
     }
   }
 ?>
