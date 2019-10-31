@@ -1,8 +1,8 @@
 <?php
   if (isset($_POST["btnSalvarEditar"])){
     $id=$_POST["id"];
-	$nome = $_POST["nome".$id];
-	$cpf = $_POST["cpf".$id];
+    $nome = $_POST["nome".$id];
+    $cpf = $_POST["cpf".$id];
     $telefone = $_POST["celular".$id];
     $email = $_POST["email".$id];
     $senha_fraca = $_POST["senha".$id];

@@ -5,6 +5,7 @@ include('../includes/funcionario/excluirFuncionario.php');
 include('../includes/funcionario/atualizarFuncionario.php');
 include('../includes/funcao/adicionarFuncao.php');
 include('../includes/funcao/excluirFuncao.php');
+include('../includes/funcao/atualizarFuncao.php');
 ?>
  <!DOCTYPE html>
 <html lang="en">
@@ -131,10 +132,11 @@ include('../includes/menu.php');
                 <div>
                   <div style="margin-top:5%"><b>Função:</b></div>  
                   <select required class="select" id="funcao" name="funcao<?php echo $array["id_funcionario"]?>">
-                    <option value="" id="selected">Escolha uma função</option>
+                    <option selected value="<?php echo $array["id_funcao"]?>"><?php echo $array["funcao"]?></option>
                     <?php  
                     $resultado = mysqli_query($conexao, "SELECT * FROM funcao ORDER BY funcao ASC");
                     while ($dados = mysqli_fetch_array($resultado)) {
+                      if($dados["id_funcao"] !== $array["id_funcao"] )                      
                         echo "<option value='".$dados["id_funcao"]."'>".$dados["funcao"]."</option>";
                     }
                     ?>
@@ -200,6 +202,35 @@ include('../includes/menu.php');
             </div>
           </div>
         </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modal<?php echo $array["id_funcao"]?>" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Editar Função </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post">
+              <div class="inputs">
+                <input style="display:none;" name="id" value="<?php echo $array["id_funcao"]?>">
+                <div>
+                  <div style="margin-top:5%"><b>Função:</b></div>  
+                  <input required type="text" name="funcao<?php echo $array["id_funcao"]?>" value="<?php echo $array["funcao"]?>"
+                  placeholder="Digite a função aqui!">  
+                </div>
+              </div>
+          </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
+                <button type="submit" name="btnSalvarEditarFuncao" class="btn btn-success botoesModal">Salvar</button></a>';
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
       <?php      
       endwhile;
       ?>

@@ -25,7 +25,7 @@ include('../includes/menu.php');
     </div>
     <div class="inputs">
         <input required type="text" name="nome" class="" id="nome" placeholder="Nome do cliente!">
-        <input required type="text" name="telefone" data-mask="(00) 0000-00000" class="" id="telefone" placeholder="Telefone do cliente!">
+        <input required type="text" name="telefone" data-mask="(00) 00000-0000" class="" id="telefone" placeholder="Telefone do cliente!">
         <input required type="text" name="data" class="" data-mask="00/00/0000" id="data" placeholder="Data da reserva">
         <input required type="text" name="horario" data-mask="00:00" class="" id="horario" placeholder="Horario da reserva!">   
         <select required class="select" id="servico" name="servico">

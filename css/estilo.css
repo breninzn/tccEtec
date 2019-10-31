@@ -61,7 +61,8 @@
     border:3px solid purple;
     font-size: 120%;
     color: black;
-    padding-left: 17%;
+    text-align-last: center;
+    text-align: center;
 }
 
 

@@ -1,6 +1,7 @@
 <?php
 include('../includes/verificaLogin.php');
 include('../includes/reserva/excluirReserva.php');
+include('../includes/reserva/atualizarReserva.php');
 ?>
  <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +56,72 @@ include('../includes/menu.php');
   </div>
 
 </div>
+<!-- Modal -->
+<div class="modal fade" id="modal<?php echo $array["id_reservas"]?>" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Editar Funcionario</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post">
+              <div class="inputs">
+                <input style="display:none;" name="id" value="<?php echo $array["id_reservas"]?>">
+                <div>
+                  <div style="margin-top:5%"><b>Nome:</b></div>
+                  <input required type="text" name="nome<?php echo $array["id_reservas"]?>" value="<?php echo $array["nome"]?>" placeholder="Digite o nome aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Telefone:</b></div>  
+                  <input required type="text" data-mask="(00) 00000-0000" name="telefone<?php echo $array["id_reservas"]?>" value="<?php echo $array["telefone"]?>" placeholder="Digite o telefone aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Data:</b></div>  
+                  <input required type="text" data-mask="00/00/0000" name="data<?php echo $array["id_reservas"]?>" value="<?php echo $array["data"]?>" placeholder="Digite a data aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Horario:</b></div>  
+                  <input type="text" name="horario<?php echo $array["id_reservas"]?>" value="<?php echo $array["horario"]?>" placeholder="Digite o horario aqui!">
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Serviço:</b></div>  
+                  <select required class="select" id="servico" name="servico<?php echo $array["id_reservas"]?>">
+                    <option selected value="<?php echo $array["id_servico"]?>"><?php echo $array["servico"]?></option>
+                    <?php 
+                      $resultado_servico = mysqli_query($conexao, "SELECT * FROM servico ORDER BY servico ASC");
+                      while ($dados_servico = mysqli_fetch_array($resultado_servico)) {
+                        if($dados_servico["id_servico"] !== $array["id_servico"] )                      
+                          echo "<option value='".$dados_servico["id_servico"]."'>".$dados_servico["servico"]."</option>";
+                      }
+                    ?>
+                </select>
+                </div>
+                <div>
+                  <div style="margin-top:5%"><b>Funcionario:</b></div>  
+                  <select required class="select" id="funcionario" name="funcionario<?php echo $array["id_reservas"]?>">
+                    <option selected value="<?php echo $array["id_funcionario"]?>"><?php echo $array["nomeFuncionario"]?></option>
+                    <?php 
+                      $resultado_funcionario = mysqli_query($conexao, "SELECT * FROM funcionarios ORDER BY nomeFuncionario ASC");
+                      while ($dados_funcionario = mysqli_fetch_array($resultado_funcionario)) {
+                        if($dados_funcionario["id_funcionario"] !== $array["id_funcionario"] )                      
+                          echo "<option value='".$dados_funcionario["id_funcionario"]."'>".$dados_funcionario["nomeFuncionario"]."</option>";
+                      }
+                    ?>
+                 </select>
+                </div>
+              </div>
+          </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
+                <button type="submit" name="btnSalvarEditar" class="btn btn-success botoesModal">Salvar</button></a>';
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
 <?php
   endwhile;
 ?>
