@@ -26,7 +26,7 @@ include('../includes/menu.php');
 <?php 
   $result = mysqli_query($conexao, "SELECT * FROM reservas 
   INNER JOIN funcionarios ON reservas.funcionario = funcionarios.id_funcionario
-  INNER JOIN servico ON reservas.servico = servico.id_servico");
+  INNER JOIN servico ON reservas.servico = servico.id_servico order by reservas.horario");
   while ($array = mysqli_fetch_array($result)):  
 ?>
 
@@ -50,6 +50,9 @@ include('../includes/menu.php');
     <button type="submit" name="btnApagarReserva" class="btn btn-danger">Apagar</button></a> 
     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal'.$array["id_reservas"].'">
     Editar
+    </button>
+    <button type="button" class="btn btn-primary"">
+    Desativar
     </button></td>
     </form>';
     ?> 
@@ -66,8 +69,8 @@ include('../includes/menu.php');
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <form action="" method="post">
+          <div class="modal-body modal-editar">
+            <form action="" class="modal-editar" method="post">
               <div class="inputs">
                 <input style="display:none;" name="id" value="<?php echo $array["id_reservas"]?>">
                 <div>
@@ -84,7 +87,7 @@ include('../includes/menu.php');
                 </div>
                 <div>
                   <div style="margin-top:5%"><b>Horario:</b></div>  
-                  <input type="text" name="horario<?php echo $array["id_reservas"]?>" value="<?php echo $array["horario"]?>" placeholder="Digite o horario aqui!">
+                  <input type="text" data-mask="00:00" name="horario<?php echo $array["id_reservas"]?>" value="<?php echo $array["horario"]?>" placeholder="Digite o horario aqui!">
                 </div>
                 <div>
                   <div style="margin-top:5%"><b>Serviço:</b></div>  
@@ -129,5 +132,7 @@ include('../includes/menu.php');
 </div>
 
 </body>
-
+<?php
+include('../includes/jquery.php');
+?>
 </html>

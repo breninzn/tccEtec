@@ -4,7 +4,7 @@ include('conexao.php');
 include('limpa.php');
 
 if(empty($_POST['usuario']) || empty($_POST['senha'])) {
-	header('Location: http://localhost/tccEtec/index.php');
+	echo '<meta http-equiv="refresh"; content="0;url=../index.php">';
 	exit();
 }
  
@@ -19,11 +19,11 @@ $row = mysqli_num_rows($result);
  
 if($row == 1) {
 	$_SESSION['usuario'] = $usuario;
-	header('Location: http://localhost/tccEtec/paginas/home.php');
+	echo '<meta http-equiv="refresh"; content="0;url=../paginas/home.php">';
 	exit();
 } else {
 	$_SESSION['nao_autenticado'] = true;
-    header('Location: http://localhost/tccEtec/index.php');
+    echo '<meta http-equiv="refresh"; content="0;url=../index.php">';
 	exit();
 }
 ?>
