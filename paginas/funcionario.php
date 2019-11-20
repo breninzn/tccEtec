@@ -74,7 +74,7 @@ include('../includes/menu.php');
        
   <?php 
   $result = mysqli_query($conexao, "SELECT * FROM funcionarios 
-  INNER JOIN funcao ON funcionarios.funcao = funcao.id_funcao");
+  INNER JOIN funcao ON funcionarios.funcao = funcao.id_funcao where funcionarios.ativo = 1");
   while ($array = mysqli_fetch_array($result)):  
   ?>
 
@@ -236,17 +236,9 @@ include('../includes/menu.php');
       ?>
   </div>
 </div>
-
-
-
 </div>
-
-
-
-
-</div></body>
-
-
+</div>
+</body>
 
 <?php
 include('../includes/jquery.php');

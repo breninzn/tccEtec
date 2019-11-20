@@ -2,6 +2,7 @@
 include('../includes/verificaLogin.php');
 include('../includes/reserva/excluirReserva.php');
 include('../includes/reserva/atualizarReserva.php');
+include('../includes/reserva/desativarReserva.php');
 ?>
  <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +23,14 @@ include('../includes/menu.php');
 <div class="titulo">
         <p>Reservas</p>
     </div>
-
+<button class="btn dropdown-toggle" style="margin-left: 8%;width:80%;background-color:#ffc107;color:black;margin-top:5%;" type="button" data-toggle="collapse" data-target="#ativas" aria-expanded="false" aria-controls="ativas"><h5>Reservas Ativas</h5></button>
+  <div class="row">
+    <div class="col">
+      <div class="collapse show" id="ativas">
 <?php 
   $result = mysqli_query($conexao, "SELECT * FROM reservas 
   INNER JOIN funcionarios ON reservas.funcionario = funcionarios.id_funcionario
-  INNER JOIN servico ON reservas.servico = servico.id_servico order by reservas.horario");
+  INNER JOIN servico ON reservas.servico = servico.id_servico where reservas.ativo = 1 order by reservas.horario ");
   while ($array = mysqli_fetch_array($result)):  
 ?>
 
@@ -51,7 +55,7 @@ include('../includes/menu.php');
     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal'.$array["id_reservas"].'">
     Editar
     </button>
-    <button type="button" class="btn btn-primary"">
+    <button type="submit" name="btnDesativarReserva" class="btn btn-primary"">
     Desativar
     </button></td>
     </form>';
@@ -128,7 +132,54 @@ include('../includes/menu.php');
 <?php
   endwhile;
 ?>
+</div>
+</div>
+</div>
+<button class="btn dropdown-toggle" style="margin-left: 8%;width:80%;background-color:#ffc107;color:black;margin-top:5%;" type="button" data-toggle="collapse" data-target="#lista" aria-expanded="false" aria-controls="lista"><h5>Histórico de Reservas</h5></button>
+  <div class="row">
+    <div class="col">
+      <div class="collapse" id="lista">
+      <?php 
+    $result = mysqli_query($conexao, "SELECT * FROM reservas 
+    INNER JOIN funcionarios ON reservas.funcionario = funcionarios.id_funcionario
+    INNER JOIN servico ON reservas.servico = servico.id_servico where reservas.ativo = 0 order by reservas.horario ");
+    while ($array = mysqli_fetch_array($result)):  
+  ?>
 
+
+  <div class="card cardLista">
+    <div class="card-header" style="background-color:#F7DC6F ;border:none;">
+      <?php echo $array["nome"]?>
+    </div>
+    <div class="card-body">
+      <p class="card-text ">Serviço: <?php echo $array["servico"]?></p>
+      <p class="card-text">Telefone: <?php echo $array["telefone"]?></p>
+      <p class="card-text">Funcionario: <?php echo $array["nomeFuncionario"]?></p>
+      <p class="card-text">Horario: <?php echo $array["horario"]?></p>
+      <p class="card-text">Data: <?php echo $array["data"]?></p>
+
+      <?php 
+      
+      echo '
+      <form action="" method="post">
+      <input style="display:none;" name="id_ApagarReserva" id="id'.$array["id_reservas"].'" value="'.$array["id_reservas"].'">
+      <button type="submit" name="btnApagarReserva" class="btn btn-danger"">
+      Apagar
+      </button>
+      <button type="submit" name="btnReativarReserva" class="btn btn-primary"">
+      Reativar
+      </button></td>
+      </form>';
+      ?> 
+    </div>
+
+  </div>
+<?php
+  endwhile;
+?>
+
+  </div>
+</div>
 </div>
 
 </body>
